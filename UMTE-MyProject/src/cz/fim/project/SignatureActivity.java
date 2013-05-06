@@ -4,7 +4,6 @@
 package cz.fim.project;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 
 import com.samsung.samm.common.SObjectStroke;
@@ -22,7 +21,7 @@ import cz.fim.project.data.DatabaseManager;
 import cz.fim.project.spenfile.ExampleUtils;
 import cz.fim.project.spenfile.PreferencesOfSAMMOption;
 import cz.fim.project.spenfile.SPenSDKUtils;
-import cz.fim.projekt.R;
+import cz.fim.project.R;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -30,8 +29,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.location.Location;
-import android.media.ExifInterface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.DisplayMetrics;
@@ -71,7 +68,7 @@ public class SignatureActivity extends Activity {
 	public static int APPLICATION_ID_VERSION_MINOR = 0;
 	public static String APPLICATION_ID_VERSION_PATCHNAME = "Debug";
 
-	public static final String DEFAULT_APP_IMAGEDATA_DIRECTORY = "Umte-MyProject";
+	public static final String MY_APP_DIRECTORY = "Umte-MyProject";
 	public static final String SAVED_FILE_EXTENSION = "png";
 
 	private final int 	MENU_BG1 = 1000;
@@ -227,7 +224,7 @@ public class SignatureActivity extends Activity {
 
 		// create basic save/road file path
 		File sdcard_path = Environment.getExternalStorageDirectory();
-		mFolder =  new File(sdcard_path, DEFAULT_APP_IMAGEDATA_DIRECTORY);
+		mFolder =  new File(sdcard_path, MY_APP_DIRECTORY);
 		if(!mFolder.exists()){
 			if(!mFolder.mkdirs()){
 				Log.e(TAG, "Default Save Path Creation Error");

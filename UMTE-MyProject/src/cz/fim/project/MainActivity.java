@@ -1,11 +1,14 @@
 package cz.fim.project;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -19,13 +22,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.googlecode.androidannotations.annotations.Background;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.UiThread;
 import com.googlecode.androidannotations.annotations.ViewById;
+import com.j256.ormlite.dao.ForeignCollection;
 
+import cz.fim.project.data.Clients;
 import cz.fim.project.data.DatabaseManager;
 import cz.fim.project.data.MyService;
-import cz.fim.projekt.R;
+import cz.fim.project.spenfile.ExampleUtils;
+import cz.fim.project.R;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends Activity {
@@ -100,10 +108,44 @@ public class MainActivity extends Activity {
 			DatabaseManager.getInstance().removeService(service);
 			loadListView();
 			break;
+		case R.id.menu_export:
+			exportToJson(service);
+			break;
 		default:
 			return super.onContextItemSelected(item);
 		}
 		return true;
+	}
+
+	@Background
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	void exportToJson(MyService service) {
+		String name = service.getName();
+		String desc = service.getText();
+		String corp = service.getCorporation();
+		Collection col = new ArrayList();
+		col.add(name);
+		col.add(desc);
+		col.add(corp);
+		ForeignCollection<Clients> clients = service.getClients();
+		for (Clients cl : clients) {
+			col.add(new Clients(cl.getFirstname(),cl.getLastname(),cl.getAddress(),cl.getCity(),cl.getPostalcode(),cl.getObrSign(),cl.getMyPhonenumber()));
+		}
+		Gson gs = new Gson();
+		String json = gs.toJson(col);
+		Log.i("JSON export", json+"");
+		File sdcard_path = Environment.getExternalStorageDirectory();
+		File mFolder = new File(sdcard_path,SignatureActivity.MY_APP_DIRECTORY);
+		if(!mFolder.exists()){
+			if(!mFolder.mkdirs()){
+				Log.e("JSON export", "Default Save Path Creation Error");
+				return ;
+			}
+		}
+		String fileName = service.getName();
+		fileName = ExampleUtils.getUniqueFilename(mFolder, fileName, "json");
+		String savePath = mFolder.getPath() + '/' + fileName;
+		if(!ExampleUtils.writeBytedata(savePath, json.getBytes())){Toast.makeText(this, "Nepodarilo se exportovat data do souboru", Toast.LENGTH_LONG).show();}
 	}
 
 	final Activity activity = this;

@@ -10,7 +10,7 @@ import com.googlecode.androidannotations.annotations.ViewById;
 import cz.fim.project.data.Clients;
 import cz.fim.project.data.DatabaseManager;
 import cz.fim.project.data.MyService;
-import cz.fim.projekt.R;
+import cz.fim.project.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

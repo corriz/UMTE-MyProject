@@ -28,7 +28,7 @@ import android.widget.ImageView;
 import com.samsung.spensdk.SCanvasConstants;
 import com.samsung.spensdk.SCanvasView;
 
-import cz.fim.projekt.R;
+import cz.fim.project.R;
 
 public class SPenSDKUtils {
 

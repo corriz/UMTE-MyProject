@@ -18,7 +18,7 @@ import com.j256.ormlite.dao.ForeignCollection;
 import cz.fim.project.data.Clients;
 import cz.fim.project.data.DatabaseManager;
 import cz.fim.project.data.MyService;
-import cz.fim.projekt.R;
+import cz.fim.project.R;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -149,7 +149,6 @@ public class ClientListActivity extends Activity {
 			break;
 		case R.id.menu_export:
 			exportToJson(this.listOfClients.get(info.position));
-				{Toast.makeText(this, "Nepodaøilo se exportovat data!", Toast.LENGTH_LONG).show();}
 			break;
 		default:
 			return super.onContextItemSelected(item);

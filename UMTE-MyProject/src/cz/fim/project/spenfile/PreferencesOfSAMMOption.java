@@ -17,7 +17,7 @@
 package cz.fim.project.spenfile;
 
 
-import cz.fim.projekt.R;
+import cz.fim.project.R;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;

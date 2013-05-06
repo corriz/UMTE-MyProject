@@ -7,7 +7,7 @@ import com.googlecode.androidannotations.annotations.ViewById;
 
 import cz.fim.project.data.DatabaseManager;
 import cz.fim.project.data.MyService;
-import cz.fim.projekt.R;
+import cz.fim.project.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;

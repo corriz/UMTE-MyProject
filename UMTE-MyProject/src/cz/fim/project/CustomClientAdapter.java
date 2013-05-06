@@ -5,7 +5,7 @@ import java.io.File;
 import java.util.List;
 
 import cz.fim.project.data.Clients;
-import cz.fim.projekt.R;
+import cz.fim.project.R;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

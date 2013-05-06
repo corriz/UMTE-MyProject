@@ -70,6 +70,18 @@ public class Clients {
 		this.myService = myService;
 	}
 	
+	public Clients(String firstname, String lastname, String address,
+			String city, String postalcode, String obrSign,
+			String myPhonenumber) {
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.city = city;
+		this.address = address;
+		this.postalcode = postalcode;
+		this.myPhonenumber = myPhonenumber;
+	}
+
+
 	public int getId() {
 		return id;
 	}
