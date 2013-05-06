@@ -149,7 +149,15 @@ public class ClientDetailActivity extends Activity {
 					i.getDoubleExtra("lng", 0));
 		}
 	};
+	
+	
 
+	@Override
+	protected void onDestroy() {
+		this.unregisterReceiver(updateReceiver);
+		super.onDestroy();
+	}
+	
 	private IntentFilter gpsFilter = new IntentFilter(MyGpsService.GPS_ACTION);
 
 	/**

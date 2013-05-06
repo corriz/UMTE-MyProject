@@ -5,6 +5,7 @@ package cz.fim.project.data;
 
 import java.util.Date;
 
+import com.google.gson.annotations.SerializedName;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -20,17 +21,22 @@ public class Clients {
 	int id;
 
 	@DatabaseField
-	String firstname, lastname;
+	String firstname;
+	
+	@DatabaseField
+	String lastname;
 
 	@DatabaseField
 	String city, address;
 
 	@DatabaseField
 	String postalcode;
-
+	
+	@SerializedName("image_path")
 	@DatabaseField
 	String obrSign;
 
+	@SerializedName("phone")
 	@DatabaseField
 	String myPhonenumber;
 

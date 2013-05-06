@@ -3,12 +3,17 @@
 
     <item
         android:id="@+id/menu_edit"
-        android:title="Edit Item"
         android:icon="@android:drawable/ic_menu_edit"
-        />
+        android:title="Edit Item"/>
     <item
         android:id="@+id/menu_delete"
-        android:title="Delete Item"
         android:icon="@android:drawable/ic_delete"
-        />
+        android:title="Delete Item"/>
+    <item
+        android:id="@+id/menu_export"
+        android:title="Export data"
+        android:icon="@android:drawable/ic_menu_share"
+        >
+    </item>
+
 </menu>

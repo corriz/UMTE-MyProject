@@ -4,8 +4,11 @@
 package cz.fim.project;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
+import com.google.gson.Gson;
+import com.googlecode.androidannotations.annotations.Background;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.ItemClick;
 import com.googlecode.androidannotations.annotations.UiThread;
@@ -26,6 +29,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.app.Activity;
 import android.content.Intent;
 
@@ -143,11 +147,32 @@ public class ClientListActivity extends Activity {
 			DatabaseManager.getInstance().removeClient(client);
 			loadClientsFromDatabase();
 			break;
-
+		case R.id.menu_export:
+			exportToJson(this.listOfClients.get(info.position));
+				{Toast.makeText(this, "Nepodaøilo se exportovat data!", Toast.LENGTH_LONG).show();}
+			break;
 		default:
 			return super.onContextItemSelected(item);
 		}
 		return true;
+	}
+
+
+	@Background
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	void exportToJson(Clients c) {
+		Collection collection = new ArrayList();
+		collection.add(c.getFirstname());
+		collection.add(c.getLastname());
+		collection.add(c.getCity());
+		collection.add(c.getAddress());
+		collection.add(c.getPostalcode());
+		collection.add(c.getMyPhonenumber());
+		collection.add(c.getObrSign());
+		collection.add(ms.getName());
+		Gson gs = new Gson();
+		String json = gs.toJson(collection);
+		Log.i("JSON Export", json + "");
 	}
 
 

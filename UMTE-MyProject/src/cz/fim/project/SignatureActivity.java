@@ -283,7 +283,6 @@ public class SignatureActivity extends Activity {
 		String savePath = mFolder.getPath() + '/' + fileName;	
 		
 		Log.d(TAG, "Save Path = " + savePath);
-		updateClientImage(savePath);
 		// canvas option setting
 		SOptionSCanvas canvasOption = mSCanvas.getOption();					
 		if(canvasOption == null)
@@ -293,6 +292,7 @@ public class SignatureActivity extends Activity {
 		mSCanvas.setOption(canvasOption);
 		
 		if(mSCanvas.saveSAMMFile(savePath)){
+			updateClientImage(savePath);
 			Toast.makeText(mContext, APPLICATION_ID_NAME + " is saved as \"" +savePath+"\"", Toast.LENGTH_LONG).show();
 		}
 		else{
