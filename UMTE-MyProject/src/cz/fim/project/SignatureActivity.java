@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cz.fim.projekt;
+package cz.fim.project;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,12 +17,12 @@ import com.samsung.spensdk.SCanvasView;
 import com.samsung.spensdk.applistener.HistoryUpdateListener;
 import com.samsung.spensdk.applistener.SCanvasInitializeListener;
 
+import cz.fim.project.data.Clients;
+import cz.fim.project.data.DatabaseManager;
 import cz.fim.project.spenfile.ExampleUtils;
 import cz.fim.project.spenfile.PreferencesOfSAMMOption;
 import cz.fim.project.spenfile.SPenSDKUtils;
 import cz.fim.projekt.R;
-import cz.fim.projekt.data.Clients;
-import cz.fim.projekt.data.DatabaseManager;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;

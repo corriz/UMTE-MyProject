@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cz.fim.projekt;
+package cz.fim.project;
 
 /**
  * @author Roman

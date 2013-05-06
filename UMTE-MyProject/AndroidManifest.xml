@@ -34,7 +34,7 @@
             android:resource="@dimen/app_minimumsize_h" />
 
         <activity
-            android:name="MainActivity_"
+            android:name="cz.fim.project.MainActivity_"
             android:configChanges="locale|orientation|keyboard|screenSize"
             android:label="@string/app_name" >
             <intent-filter>
@@ -42,11 +42,11 @@
                 <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="AddServiceActivity_" android:label="Add New Service"/>
-        <activity android:name="ClientListActivity_" android:label="Client List"></activity>
-        <activity android:name="AddClientActivity_" android:label="Add Client"></activity>
-        <activity android:name="ClientDetailActivity_" android:label="Detail"></activity>
-        <activity android:name="SignatureActivity"></activity>
+        <activity android:name="cz.fim.project.AddServiceActivity_" android:label="Add New Service"/>
+        <activity android:name="cz.fim.project.ClientListActivity_" android:label="Client List"></activity>
+        <activity android:name="cz.fim.project.AddClientActivity_" android:label="Add Client"></activity>
+        <activity android:name="cz.fim.project.ClientDetailActivity_" android:label="Detail"></activity>
+        <activity android:name="cz.fim.project.SignatureActivity"></activity>
         <service android:name="cz.fim.project.service.MyGpsService"></service>
         
     </application>

@@ -1,13 +1,13 @@
-package cz.fim.projekt;
+package cz.fim.project;
 
 import com.googlecode.androidannotations.annotations.Background;
 import com.googlecode.androidannotations.annotations.Click;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.ViewById;
 
+import cz.fim.project.data.DatabaseManager;
+import cz.fim.project.data.MyService;
 import cz.fim.projekt.R;
-import cz.fim.projekt.data.DatabaseManager;
-import cz.fim.projekt.data.MyService;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;

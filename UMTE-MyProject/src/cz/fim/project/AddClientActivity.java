@@ -1,4 +1,4 @@
-package cz.fim.projekt;
+package cz.fim.project;
 
 import java.util.Date;
 
@@ -7,10 +7,10 @@ import com.googlecode.androidannotations.annotations.Click;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.ViewById;
 
+import cz.fim.project.data.Clients;
+import cz.fim.project.data.DatabaseManager;
+import cz.fim.project.data.MyService;
 import cz.fim.projekt.R;
-import cz.fim.projekt.data.Clients;
-import cz.fim.projekt.data.DatabaseManager;
-import cz.fim.projekt.data.MyService;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package cz.fim.projekt;
+package cz.fim.project;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,9 +23,9 @@ import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.UiThread;
 import com.googlecode.androidannotations.annotations.ViewById;
 
+import cz.fim.project.data.DatabaseManager;
+import cz.fim.project.data.MyService;
 import cz.fim.projekt.R;
-import cz.fim.projekt.data.DatabaseManager;
-import cz.fim.projekt.data.MyService;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends Activity {

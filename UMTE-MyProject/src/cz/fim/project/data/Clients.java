@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cz.fim.projekt.data;
+package cz.fim.project.data;
 
 import java.util.Date;
 

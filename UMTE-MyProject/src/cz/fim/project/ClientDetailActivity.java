@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cz.fim.projekt;
+package cz.fim.project;
 
 import com.googlecode.androidannotations.annotations.Background;
 import com.googlecode.androidannotations.annotations.Click;
@@ -9,10 +9,9 @@ import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.UiThread;
 import com.googlecode.androidannotations.annotations.ViewById;
 
+import cz.fim.project.data.Clients;
+import cz.fim.project.data.DatabaseManager;
 import cz.fim.project.service.MyGpsService;
-import cz.fim.projekt.R;
-import cz.fim.projekt.data.Clients;
-import cz.fim.projekt.data.DatabaseManager;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -21,6 +20,7 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.TextView;
+import cz.fim.projekt.*;
 
 /**
  * @author Roman

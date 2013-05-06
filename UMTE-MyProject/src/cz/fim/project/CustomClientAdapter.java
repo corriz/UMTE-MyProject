@@ -1,11 +1,11 @@
-package cz.fim.projekt;
+package cz.fim.project;
 
 
 import java.io.File;
 import java.util.List;
 
+import cz.fim.project.data.Clients;
 import cz.fim.projekt.R;
-import cz.fim.projekt.data.Clients;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

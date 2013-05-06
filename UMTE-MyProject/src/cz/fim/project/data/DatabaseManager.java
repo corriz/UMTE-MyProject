@@ -1,4 +1,4 @@
-package cz.fim.projekt.data;
+package cz.fim.project.data;
 
 import java.sql.SQLException;
 import java.util.List;
