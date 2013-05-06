@@ -7,6 +7,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -128,14 +129,18 @@ public class MainActivity extends Activity {
 		col.add(desc);
 		col.add(corp);
 		ForeignCollection<Clients> clients = service.getClients();
+		ArrayList<Uri> fileUris = new ArrayList<Uri>();
 		for (Clients cl : clients) {
 			col.add(new Clients(cl.getFirstname(),cl.getLastname(),cl.getAddress(),cl.getCity(),cl.getPostalcode(),cl.getObrSign(),cl.getMyPhonenumber()));
+			fileUris.add(Uri.parse(cl.getObrSign()));
 		}
 		Gson gs = new Gson();
 		String json = gs.toJson(col);
 		Log.i("JSON export", json+"");
+		
 		File sdcard_path = Environment.getExternalStorageDirectory();
 		File mFolder = new File(sdcard_path,SignatureActivity.MY_APP_DIRECTORY);
+		
 		if(!mFolder.exists()){
 			if(!mFolder.mkdirs()){
 				Log.e("JSON export", "Default Save Path Creation Error");
@@ -146,6 +151,17 @@ public class MainActivity extends Activity {
 		fileName = ExampleUtils.getUniqueFilename(mFolder, fileName, "json");
 		String savePath = mFolder.getPath() + '/' + fileName;
 		if(!ExampleUtils.writeBytedata(savePath, json.getBytes())){Toast.makeText(this, "Nepodarilo se exportovat data do souboru", Toast.LENGTH_LONG).show();}
+		
+		fileUris.add(Uri.parse(savePath));
+		shareAllData(fileUris);
+	}
+	@UiThread
+	void shareAllData(ArrayList<Uri> fileUris) {
+		Intent shareIntent = new Intent();
+		shareIntent.setAction(Intent.ACTION_SEND_MULTIPLE);
+		shareIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, fileUris);
+		shareIntent.setType("*/*");
+		startActivity(Intent.createChooser(shareIntent, "Share images to.."));
 	}
 
 	final Activity activity = this;
