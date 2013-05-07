@@ -33,7 +33,7 @@ public class Clients {
 	String postalcode;
 	
 	@SerializedName("image_path")
-	@DatabaseField
+	@DatabaseField (defaultValue = "null")
 	String obrSign;
 
 	@SerializedName("phone")

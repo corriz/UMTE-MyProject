@@ -132,7 +132,9 @@ public class MainActivity extends Activity {
 		ArrayList<Uri> fileUris = new ArrayList<Uri>();
 		for (Clients cl : clients) {
 			col.add(new Clients(cl.getFirstname(),cl.getLastname(),cl.getAddress(),cl.getCity(),cl.getPostalcode(),cl.getObrSign(),cl.getMyPhonenumber()));
+			if(cl.getObrSign() != null){
 			fileUris.add(Uri.parse(cl.getObrSign()));
+			}
 		}
 		Gson gs = new Gson();
 		String json = gs.toJson(col);
